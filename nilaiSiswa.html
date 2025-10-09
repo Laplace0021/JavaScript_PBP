@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabel Nilai Siswa</title>
+  </head>
+  <body>
+    <h1>Tabel Nilai Siswa</h1>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <tr>
+        <th>NO</th>
+        <th>NAMA</th>
+        <th>TUGAS</th>
+        <th>UTS</th>
+        <th>UAS</th>
+        <th>NA</th>
+      </tr>
+      <tbody id="table-body"></tbody>
+    </table>
+
+    <script>
+      const nama = ["Asep", "Iwan", "Cepi", "Agus", "Dadang"];
+      const tugas = [80, 75, 70, 65, 60];
+      const uts = [95, 75, 80, 40, 70];
+      const uas = [85, 90, 90, 55, 60];
+
+      const tbody = document.getElementById("table-body");
+
+      for (let i = 0; i < nama.length; i++) {
+        const na = 0.4 * tugas[i] + 0.3 * uts[i] + 0.3 * uas[i];
+        const row = `
+                <tr>
+                    <td>${i+1}</td>
+                    <td>${nama[i]}</td>
+                    <td>${tugas[i]}</td>
+                    <td>${uts[i]}</td>
+                    <td>${uas[i]}</td>
+                    <td>${na}</td>
+                    </tr>
+        `;
+        tbody.innerHTML += row;
+      }
+    </script>
+  </body>
+</html>
